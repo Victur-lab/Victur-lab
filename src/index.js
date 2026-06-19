@@ -1,7 +1,6 @@
 import "dotenv/config";
 import cron from "node-cron";
-import { fetchTicker } from "./safetrade.js";
-import { sendWhatsapp } from "./whatsapp.js";
+import { checkAndNotify } from "./check.js";
 
 const {
   MARKET = "prlusdt",
@@ -18,24 +17,17 @@ if (!WHATSAPP_PHONE || !WHATSAPP_APIKEY) {
   process.exit(1);
 }
 
-async function checkAndNotify() {
-  try {
-    const ticker = await fetchTicker(MARKET, SAFETRADE_TICKER_URL);
-    const symbol = MARKET.toUpperCase();
-    const text =
-      `${symbol}: $${ticker.last}` +
-      (ticker.high !== undefined ? ` | max: $${ticker.high}` : "") +
-      (ticker.low !== undefined ? ` | min: $${ticker.low}` : "");
-
-    console.log(new Date().toISOString(), text);
-    await sendWhatsapp({ phone: WHATSAPP_PHONE, apikey: WHATSAPP_APIKEY, text });
-  } catch (err) {
-    console.error("Erro ao verificar/notificar cotacao:", err.message);
-  }
+function run() {
+  checkAndNotify({
+    market: MARKET,
+    tickerUrl: SAFETRADE_TICKER_URL,
+    phone: WHATSAPP_PHONE,
+    apikey: WHATSAPP_APIKEY,
+  }).catch((err) => console.error("Erro ao verificar/notificar cotacao:", err.message));
 }
 
 const minutes = Number(INTERVAL_MINUTES) || 5;
 console.log(`Notificando ${MARKET.toUpperCase()} a cada ${minutes} minuto(s) via WhatsApp.`);
 
-checkAndNotify();
-cron.schedule(`*/${minutes} * * * *`, checkAndNotify);
+run();
+cron.schedule(`*/${minutes} * * * *`, run);
