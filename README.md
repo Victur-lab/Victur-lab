@@ -12,7 +12,7 @@ Nenhum bot pode te enviar WhatsApp sem que VOCE autorize, nem adicionar segredos
 
 ### Passo 1 — Autorizar o CallMeBot a te mandar mensagem (30 segundos)
 
-1. No celular numero `+55 17 99682-2110`, adicione o contato `+34 644 59 71 65`.
+1. No celular numero `+55 17 99682-2110`, adicione o contato `+34 644 81 58 78` (numero oficial atual do CallMeBot).
 2. Envie para esse numero, pelo WhatsApp, a mensagem exatamente assim:
    ```
    I allow callmebot to send me messages
