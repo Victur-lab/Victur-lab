@@ -16,6 +16,9 @@ jobs:
       - run: npm ci
       - run: node src/checkOnce.js
         env:
-          MARKET: prlusdt
+          COIN_ID: pearl-2
+          EXCHANGE_ID: safe-trade
+          BASE: PRL
+          TARGET: USDT
           WHATSAPP_PHONE: ${{ secrets.WHATSAPP_PHONE }}
           WHATSAPP_APIKEY: ${{ secrets.WHATSAPP_APIKEY }}

@@ -2,8 +2,10 @@ import "dotenv/config";
 import { checkAndNotify } from "./check.js";
 
 const {
-  MARKET = "prlusdt",
-  SAFETRADE_TICKER_URL = "https://safe.trade/api/v2/peatio/public/markets/{market}/tickers",
+  COIN_ID = "pearl-2",
+  EXCHANGE_ID = "safe-trade",
+  BASE = "PRL",
+  TARGET = "USDT",
   WHATSAPP_PHONE,
   WHATSAPP_APIKEY,
 } = process.env;
@@ -14,8 +16,10 @@ if (!WHATSAPP_PHONE || !WHATSAPP_APIKEY) {
 }
 
 checkAndNotify({
-  market: MARKET,
-  tickerUrl: SAFETRADE_TICKER_URL,
+  coinId: COIN_ID,
+  exchangeId: EXCHANGE_ID,
+  base: BASE,
+  target: TARGET,
   phone: WHATSAPP_PHONE,
   apikey: WHATSAPP_APIKEY,
 }).catch((err) => {

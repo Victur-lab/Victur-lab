@@ -53,15 +53,9 @@ pm2 start src/index.js --name crypto-notifier
 pm2 save
 ```
 
-## Observacao sobre a API da SafeTrade
+## Observacao sobre a fonte do preco
 
-O endpoint usado segue o padrao do motor Peatio/Openware que a SafeTrade utiliza:
-
-```
-https://safe.trade/api/v2/peatio/public/markets/{market}/tickers
-```
-
-Esse endpoint nao pode ser verificado automaticamente neste ambiente (a SafeTrade bloqueia acesso automatizado com erro 403). Se a primeira execucao no GitHub Actions falhar com erro de URL/404, veja o log em **Actions** e me avise (ou rode `Run workflow` manualmente e copie a mensagem de erro) que eu ajusto o `SAFETRADE_TICKER_URL` em `.env.example` e no workflow.
+A API da SafeTrade (`safetrade.com` e `safe.trade`) bloqueia requisicoes vindas de servidores/datacenters (incluindo o GitHub Actions) com erro 403, mesmo simulando um navegador. Por isso o preco e obtido via **CoinGecko** (API publica gratuita, sem bloqueio de datacenter), buscando o ticker do par PRL/USDT especificamente dentro da exchange SafeTrade (`exchange_id=safe-trade`, `coin_id=pearl-2`), entao o valor enviado e o mesmo que aparece no SafeTrade.
 
 ## Limite gratuito do GitHub Actions
 

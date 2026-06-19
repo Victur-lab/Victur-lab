@@ -3,8 +3,10 @@ import cron from "node-cron";
 import { checkAndNotify } from "./check.js";
 
 const {
-  MARKET = "prlusdt",
-  SAFETRADE_TICKER_URL = "https://safe.trade/api/v2/peatio/public/markets/{market}/tickers",
+  COIN_ID = "pearl-2",
+  EXCHANGE_ID = "safe-trade",
+  BASE = "PRL",
+  TARGET = "USDT",
   INTERVAL_MINUTES = "5",
   WHATSAPP_PHONE,
   WHATSAPP_APIKEY,
@@ -19,15 +21,17 @@ if (!WHATSAPP_PHONE || !WHATSAPP_APIKEY) {
 
 function run() {
   checkAndNotify({
-    market: MARKET,
-    tickerUrl: SAFETRADE_TICKER_URL,
+    coinId: COIN_ID,
+    exchangeId: EXCHANGE_ID,
+    base: BASE,
+    target: TARGET,
     phone: WHATSAPP_PHONE,
     apikey: WHATSAPP_APIKEY,
   }).catch((err) => console.error("Erro ao verificar/notificar cotacao:", err.message));
 }
 
 const minutes = Number(INTERVAL_MINUTES) || 5;
-console.log(`Notificando ${MARKET.toUpperCase()} a cada ${minutes} minuto(s) via WhatsApp.`);
+console.log(`Notificando ${BASE}/${TARGET} a cada ${minutes} minuto(s) via WhatsApp.`);
 
 run();
 cron.schedule(`*/${minutes} * * * *`, run);
