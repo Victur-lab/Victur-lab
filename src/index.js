@@ -4,7 +4,7 @@ import { checkAndNotify } from "./check.js";
 
 const {
   COIN_ID = "pearl-2",
-  EXCHANGE_ID = "safe-trade",
+  EXCHANGE_ID = "safe_trade",
   BASE = "PRL",
   TARGET = "USDT",
   INTERVAL_MINUTES = "5",

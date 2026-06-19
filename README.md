@@ -55,7 +55,7 @@ pm2 save
 
 ## Observacao sobre a fonte do preco
 
-A API da SafeTrade (`safetrade.com` e `safe.trade`) bloqueia requisicoes vindas de servidores/datacenters (incluindo o GitHub Actions) com erro 403, mesmo simulando um navegador. Por isso o preco e obtido via **CoinGecko** (API publica gratuita, sem bloqueio de datacenter), buscando o ticker do par PRL/USDT especificamente dentro da exchange SafeTrade (`exchange_id=safe-trade`, `coin_id=pearl-2`), entao o valor enviado e o mesmo que aparece no SafeTrade.
+A API da SafeTrade (`safetrade.com` e `safe.trade`) bloqueia requisicoes vindas de servidores/datacenters (incluindo o GitHub Actions) com erro 403, mesmo simulando um navegador. Por isso o preco e obtido via **CoinGecko** (API publica gratuita, sem bloqueio de datacenter), buscando o ticker do par PRL/USDT especificamente dentro da exchange SafeTrade (`exchange_id=safe_trade`, `coin_id=pearl-2`), entao o valor enviado e o mesmo que aparece no SafeTrade.
 
 ## Limite gratuito do GitHub Actions
 
