@@ -1,7 +1,11 @@
 export async function fetchTicker(market, tickerUrlTemplate) {
   const url = tickerUrlTemplate.replace("{market}", market);
   const res = await fetch(url, {
-    headers: { Accept: "application/json" },
+    headers: {
+      Accept: "application/json",
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+    },
   });
 
   if (!res.ok) {

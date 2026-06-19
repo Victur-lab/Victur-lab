@@ -58,7 +58,7 @@ pm2 save
 O endpoint usado segue o padrao do motor Peatio/Openware que a SafeTrade utiliza:
 
 ```
-https://safetrade.com/api/v2/peatio/public/markets/{market}/tickers
+https://safe.trade/api/v2/peatio/public/markets/{market}/tickers
 ```
 
 Esse endpoint nao pode ser verificado automaticamente neste ambiente (a SafeTrade bloqueia acesso automatizado com erro 403). Se a primeira execucao no GitHub Actions falhar com erro de URL/404, veja o log em **Actions** e me avise (ou rode `Run workflow` manualmente e copie a mensagem de erro) que eu ajusto o `SAFETRADE_TICKER_URL` em `.env.example` e no workflow.

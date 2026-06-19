@@ -3,7 +3,7 @@ import { checkAndNotify } from "./check.js";
 
 const {
   MARKET = "prlusdt",
-  SAFETRADE_TICKER_URL = "https://safetrade.com/api/v2/peatio/public/markets/{market}/tickers",
+  SAFETRADE_TICKER_URL = "https://safe.trade/api/v2/peatio/public/markets/{market}/tickers",
   WHATSAPP_PHONE,
   WHATSAPP_APIKEY,
 } = process.env;
