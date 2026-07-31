@@ -1,6 +1,8 @@
 # Victur Crypto Notifier
 
-App que verifica a cotacao da PRL/USDT na SafeTrade (https://safetrade.com/exchange/PRL-USDT) e avisa por **Telegram** a cada 5 minutos. O Telegram e **gratuito de verdade**, sem cobranca por mensagem.
+App que verifica a cotacao da PRL/USDT na SafeTrade (https://safetrade.com/exchange/PRL-USDT) e avisa por **Telegram** a cada 5 minutos.
+
+> **Novo:** tambem existe um **app nativo para iPhone** que mostra a cotacao ao vivo e manda notificacoes no proprio aparelho — veja a pasta [`ios/`](ios/README.md). O Telegram e **gratuito de verdade**, sem cobranca por mensagem.
 
 Roda automaticamente e de forma gratuita via **GitHub Actions** (cron a cada 5 minutos) — nao precisa deixar nenhum computador ligado.
 
